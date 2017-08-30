@@ -1,4 +1,4 @@
-package com.example.coolweather;
+package com.coolweather.android;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -11,11 +11,11 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.coolweather.gson.Forecast;
-import com.example.coolweather.gson.Weather;
-import com.example.coolweather.util.HttpUntil;
-import com.example.coolweather.util.Utility;
-import com.google.gson.annotations.SerializedName;
+import com.example.coolweather.Android.gson.Forecast;
+import com.example.coolweather.Android.gson.Weather;
+import com.example.coolweather.Android.util.HttpUntil;
+import com.example.coolweather.Android.util.Utility;
+import com.example.coolweather.R;
 
 import java.io.IOException;
 

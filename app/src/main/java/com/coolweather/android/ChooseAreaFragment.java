@@ -1,4 +1,4 @@
-package com.example.coolweather;
+package com.example.coolweather.Android;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,11 +14,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.coolweather.db.City;
-import com.example.coolweather.db.County;
-import com.example.coolweather.db.Province;
-import com.example.coolweather.util.HttpUntil;
-import com.example.coolweather.util.Utility;
+import com.example.coolweather.Android.db.City;
+import com.example.coolweather.Android.db.County;
+import com.example.coolweather.Android.db.Province;
+import com.example.coolweather.Android.util.HttpUntil;
+import com.example.coolweather.Android.util.Utility;
+import com.example.coolweather.R;
 
 import org.litepal.crud.DataSupport;
 
@@ -69,7 +70,7 @@ public class ChooseAreaFragment extends Fragment {
     /**
      * 当前选中的级别
      */
-    private int currentLeval;
+    private int currentLevel;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.choose_area,container,false);
@@ -86,13 +87,13 @@ public class ChooseAreaFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?>parent,View view,int position,long id){
-                if (currentLeval == LEVEL_PROVINCE) {
+                if (currentLevel == LEVEL_PROVINCE) {
                     selectedProvince = provinceList.get(position);
                     queryCities();
-                }else if (currentLeval == LEVEL_CITY){
+                }else if (currentLevel == LEVEL_CITY){
                     selectedCity = cityList.get(position);
                     queryCounties();
-                } else if (currentLeval == LEVEL_COUNTY) {
+                } else if (currentLevel == LEVEL_COUNTY) {
                     String weatherId = countyList.get(position).getWeatherId();
                     Intent intent = new Intent(getActivity(),WeatherActivity.class);
                     intent .putExtra("weather_id",weatherId);
@@ -104,9 +105,9 @@ public class ChooseAreaFragment extends Fragment {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (currentLeval == LEVEL_COUNTY){
+                if (currentLevel == LEVEL_COUNTY){
                     queryCities();
-                }else if (currentLeval == LEVEL_CITY){
+                }else if (currentLevel == LEVEL_CITY){
                     queryProvinces();
                 }
             }
@@ -127,7 +128,7 @@ public class ChooseAreaFragment extends Fragment {
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            currentLeval = LEVEL_PROVINCE;
+            currentLevel = LEVEL_PROVINCE;
         } else {
             int provinceCode = selectedProvince.getProvinceCode();
             String address = "http://guolin.tech/api/china";
@@ -149,7 +150,7 @@ public class ChooseAreaFragment extends Fragment {
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            currentLeval = LEVEL_CITY;
+            currentLevel = LEVEL_CITY;
 
         }else  {
             int provinceCode = selectedProvince.getProvinceCode();
@@ -172,7 +173,7 @@ public class ChooseAreaFragment extends Fragment {
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            currentLeval = LEVEL_COUNTY;
+            currentLevel = LEVEL_COUNTY;
 
         }else  {
             int provinceCode = selectedProvince.getProvinceCode();
