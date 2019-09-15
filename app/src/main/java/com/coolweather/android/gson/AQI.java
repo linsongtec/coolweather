@@ -1,13 +1,15 @@
-package com.example.coolweather.Android.gson;
-
-/**
- * Created by Administrator on 2017/8/27.
- */
+package com.coolweather.android.gson;
 
 public class AQI {
+
     public AQICity city;
+
     public class AQICity {
+
         public String aqi;
+
         public String pm25;
+
     }
+
 }

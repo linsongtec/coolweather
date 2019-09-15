@@ -1,12 +1,9 @@
-package com.example.coolweather.Android.db;
+package com.coolweather.android.db;
 
 import org.litepal.crud.DataSupport;
 
-/**
- * Created by Administrator on 2017/8/25.
- */
-
 public class City extends DataSupport {
+
     private int id;
 
     private String cityName;
@@ -15,13 +12,15 @@ public class City extends DataSupport {
 
     private int provinceId;
 
-    public int getId(){
+    public int getId() {
         return id;
     }
-    public void setId(int id){
+
+    public void setId(int id) {
         this.id = id;
     }
-    public String getCityName(){
+
+    public String getCityName() {
         return cityName;
     }
 
@@ -44,4 +43,5 @@ public class City extends DataSupport {
     public void setProvinceId(int provinceId) {
         this.provinceId = provinceId;
     }
+
 }

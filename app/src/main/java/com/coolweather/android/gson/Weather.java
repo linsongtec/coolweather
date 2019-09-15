@@ -1,14 +1,11 @@
-package com.coolweather.Android.gson;
+package com.coolweather.android.gson;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/**
- * Created by Administrator on 2017/8/27.
- */
-
 public class Weather {
+
     public String status;
 
     public Basic basic;
@@ -21,4 +18,5 @@ public class Weather {
 
     @SerializedName("daily_forecast")
     public List<Forecast> forecastList;
+
 }
