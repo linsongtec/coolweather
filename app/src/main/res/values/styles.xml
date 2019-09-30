@@ -8,4 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="splash" parent="AppTheme">
+        <item name="android:windowNoTitle">true</item>
+        <!--    状态栏透明     -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- 导航栏透明，华为手机依然可见图标 -->
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:background">@drawable/bg</item>
+
+    </style>
+
 </resources>
